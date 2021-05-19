@@ -18,10 +18,17 @@
 .include "f2d.s"
 .include "f3d.s"
 
-
 .include "f1e.s"
 .include "f2e.s"
 .include "f3e.s"
+
+.include "f1d2.s"
+.include "f2d2.s"
+.include "f3d2.s"
+
+.include "f1e2.s"
+.include "f2e2.s"
+.include "f3e2.s"
 
 pos_opcao: .word 0xFF009ec8, 0xff00b908, 0xff00d348, 0xff00ed88, 0xff010688
 opcao: .word 0
@@ -219,6 +226,12 @@ iniciar_level1:
 	li a1, 0xFF000000	# endereco inicial
 	printIMG(level1) 	#imprime fundo
 	
+	li a1, 0xFF00E240	# endereco inicial
+	printIMG(f3d2) 		#imprime flipper direito
+	
+	li a1, 0xFF00E240	# endereco inicial
+	printIMG(f3e2) 		#imprime flipper esquerdo
+	
 	la tp,KDInterrupt2	# Le teclado
  	csrrw zero,5,tp 	
  	csrrsi zero,0,1 	
@@ -248,34 +261,34 @@ KDInterrupt2:
   	beq t2, t6, volta_menu		# Se apertou Esc	
 	
 flipper_direito:
-	li a1, 0xFF00F640		# endereco inicial
-	printIMG(f2d) 			#imprime fundo
+	li a1, 0xFF00E240		# endereco inicial
+	printIMG(f2d2) 			#imprime fundo
 	
-	li a1, 0xFF00F640		# endereco inicial
-	printIMG(f3d) 			#imprime fundo
+	li a1, 0xFF00E240		# endereco inicial
+	printIMG(f1d2) 			#imprime fundo
 	
-	li a1, 0xFF00F640		# endereco inicial
-	printIMG(f2d) 			#imprime fundo
+	li a1, 0xFF00E240		# endereco inicial
+	printIMG(f2d2) 			#imprime fundo
 	
-	li a1, 0xFF00F640		# endereco inicial
-	printIMG(f1d) 			#imprime fundo
+	li a1, 0xFF00E240		# endereco inicial
+	printIMG(f3d2) 			#imprime fundo
 	
 	jal som_flipper
 	
 	j leteclafora
 	
 flipper_esquerdo:
-	li a1, 0xFF009EC8		# endereco inicial
-	printIMG(f2e) 			#imprime fundo
+	li a1, 0xFF00E240		# endereco inicial
+	printIMG(f2e2) 			#imprime fundo
 	
-	li a1, 0xFF009EC8		# endereco inicial
-	printIMG(f3e) 			#imprime fundo
+	li a1, 0xFF00E240		# endereco inicial
+	printIMG(f1e2) 			#imprime fundo
 	
-	li a1, 0xFF009EC8		# endereco inicial
-	printIMG(f2e) 			#imprime fundo
+	li a1, 0xFF00E240		# endereco inicial
+	printIMG(f2e2) 			#imprime fundo
 	
-	li a1, 0xFF009EC8		# endereco inicial
-	printIMG(f1e) 			#imprime fundo
+	li a1, 0xFF00E240		# endereco inicial
+	printIMG(f3e2) 			#imprime fundo
 	
 	jal som_flipper
 	
