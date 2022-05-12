@@ -1,3 +1,3 @@
-# OAC-Projects
+# Projetos de OAC
 
-Projetos desenvolvidos para disciplina de Organização e Arquitetura de Computadores (OAC) da UnB.
+Projetos desenvolvidos para disciplina de Organização e Arquitetura de Computadores (OAC).
